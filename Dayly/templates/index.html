@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block head %}
+<!-- <meta http-equiv="refresh" content="30"> -->
+{% endblock %}
+
+{% block main %}
+<div class="tape" class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols"; [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "BTC/USD"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "ETH/USD"
+      }
+    ],
+    "colorTheme"; "dark",
+    "isTransparent"; false,
+    "displayMode"; "adaptive",
+    "locale"; "en"
+  }
+    </script>
+</div>
+<div class="currently">
+    <p>TODAY IS</p>
+    <p class="day" id="da"></p>
+    <p class="date" id="dt"></p>
+    <p class="time" id="time"></p>
+</div>
+<div class="clock">
+    <table>
+        <tr><td style="text-align: center;"><canvas id="canvas_tt5f46d52eb8f57" width="250" height="250"></canvas></td></tr>
+        <tr><td style="text-align: center; font-weight: bold"><a href="//24timezones.com/time-zone/pt" style="text-decoration: none" class="clock24" id="tz24-1598477614-tzpdt-eyJzaXplIjoiMjUwIiwiYmdjb2xvciI6IkZGRkZGRiIsImxhbmciOiJlbiIsInR5cGUiOiJhIiwiY2FudmFzX2lkIjoiY2FudmFzX3R0NWY0NmQ1MmViOGY1NyJ9" title="PDT time now" target="_blank" rel="nofollow"></a></td></tr>
+    </table>
+    <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+</div>
+<div class="news" id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:700px;background-color: transparent; border:1px solid #333333;"><div class="news-format" id="rsswidget" style="height:300px;"><iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1598482713023&amp;x=http%3A%2F%2Frss.cnn.com%2Frss%2Fcnn_topstories.rss&amp;w=700&amp;h=300&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=20&amp;it=true&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:700px; height:300px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:1px solid #333333;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
+<!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-0d2b5c2e-8a03-49a3-9913-60daeb92bfaf"></div> -->
+<a class="weatherwidget-io" href="https://forecast7.com/en/34d05n118d24/los-angeles/?unit=us" data-label_1="LOS ANGELES" data-label_2="WEATHER" data-theme="gray" data-basecolor="#718c6a" data-accent="rgba(255, 255, 255, 0.05)" data-highcolor="#b0c38d" data-lowcolor="#31595e" data-suncolor="#ded797" data-mooncolor="#ffffff" data-cloudfill="#ffffff" data-raincolor="#ffffff" >LOS ANGELES WEATHER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+<script>function clock(){var date=new Date();var weekday=date.getDay();var year=date.getYear();var month=date.getMonth();var day=date.getDate();var hour=date.getHours();var minute=date.getMinutes();var second=date.getSeconds();var days=new Array ("SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY" );var months=new Array("JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER");var monthname=months[month];var dayname=days[weekday];var ap;if(year<1000){year=year+1900} if(hour>=12){hour=hour-12;ap='PM';}else{ap='AM';} if(minute<10){minute="0"+minute} if(second<10){second="0"+second};
+    document.getElementById('time').innerHTML=hour+":"+ minute +" " +ap; 
+    document.getElementById('da').innerHTML=dayname;
+    document.getElementById('dt').innerHTML=monthname+" "+day+", "+year;
+    document.getElementById('salute').innerHTML=sal;setTimeout("clock()",1000)}window.onload=function(){clock();}
+  </script>
+  <style>#outer{width:300px;text-align:center;margin:0 auto;}
+    #cover{padding:4px 0;border:2px solid #111}
+    #da,#dt,#time{padding:3px}</style>
+{% endblock %}

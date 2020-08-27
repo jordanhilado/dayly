@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h1 class="login-title">Welcome to Dayly.</h1>
+<p class="login-form">Dayly combines your calendar, tasks, and notes all in one application. Join today!</p>
+    <form class="login" action="/login" method="post">
+        <div class="input-group">
+            <input id="inputField" required class="input-area" type="text" autocomplete="off" autofocus name="username" type="text">
+            <label for="inputField" class="label">Username</label>
+        </div>
+        <div class="input-group">
+            <input type="password" id="inputField" required class="input-area" autocomplete="off" autofocus name="password" type="password">
+            <label for="inputField" class="label">Password</label>
+        </div>
+        <button class="login-register" type="submit">Log In</button>
+    </form>
+{% endblock %}

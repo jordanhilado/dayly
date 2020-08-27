@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <h1 class="main-title">Settings</h1><br>
+    <a id="myBtn" class="changepass">Change Password</a>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>New Password</p>
+            <form action="/changepass" method="POST">
+                <label>Password</label>
+                <input name="password1" type="password" autocomplete="off" required>
+                <label>Confirm Password</label>
+                <input name="newpw" type="password" autocomplete="off" required>
+                <input value="Change Password" type="submit"></input>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calendar
+{% endblock %}
+
+{% block main %}
+<h1 class="main-title">My Calendar</h1>
+<script>function clock(){var date=new Date();var weekday=date.getDay();var year=date.getYear();var month=date.getMonth();var day=date.getDate();var hour=date.getHours();var minute=date.getMinutes();var second=date.getSeconds();var days=new Array ("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" );var months=new Array("January","February","March","April","May","June","July","August","September","October","November","december");var monthname=months[month];var dayname=days[weekday];var ap;if(year<1000){year=year+1900} if(hour>=12){hour=hour-12;ap='PM';}else{ap='AM';} if(minute<10){minute="0"+minute} if(second<10){second="0"+second};
+  document.getElementById('time').innerHTML=hour+" : "+ minute +" : "+second+" " +ap; 
+  document.getElementById('da').innerHTML=dayname;
+  document.getElementById('dt').innerHTML=monthname+" "+day+", "+year;
+  document.getElementById('salute').innerHTML=sal;setTimeout("clock()",1000)}window.onload=function(){clock();}
+</script>
+<style>#outer{width:300px;text-align:center;margin:0 auto;}
+  #cover{padding:4px 0;border:2px solid #111}
+  #da,#dt,#time{text-align:center;padding:3px}</style>
+<div id=outer><div id=cover><div id=dt></div><div id=da></div><div id=time></div></div></div>
+<br><br><br><br><br>
+<div class="calendar-format">
+    <div id="demo" class="yui3-skin-sam yui3-g">
+      <div id="leftcolumn" class="yui3-u">
+         <div id="mycalendar"></div>
+      </div>
+      <div id="rightcolumn" class="yui3-u">
+       <div id="links" style="padding-left:20px;">
+          Selected date: <span id="selecteddate"></span>
+       </div>
+      </div>
+    </div>
+</div>
+    <script type="text/javascript">
+    YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
+        var calendar = new Y.Calendar({
+          contentBox: "#mycalendar",
+          width:'340px',
+          showPrevMonth: true,
+          showNextMonth: true,
+          date: new Date()}).render();
+
+        // Get a reference to Y.DataType.Date
+        var dtdate = Y.DataType.Date;
+
+        // Listen to calendar's selectionChange event.
+        calendar.on("selectionChange", function (ev) {
+
+          // Get the date from the list of selected
+          // dates returned with the event (since only
+          // single selection is enabled by default,
+          // we expect there to be only one date)
+          var newDate = ev.newSelection[0];
+
+          // Format the date and output it to a DOM
+          // element.
+          Y.one("#selecteddate").setHTML(dtdate.format(newDate));
+        });
+    });
+        var highlight_start = '<TD WIDTH="30"><TABLE CELLSPACING=0 BORDER=1 BGCOLOR=718c6a BORDERCOLOR=CCCCCC><TR><TD WIDTH=20><B><CENTER>';
+        var highlight_end   = '</CENTER></TD></TR></TABLE></B>';
+            if( today==Calendar.getDate() )
+          cal += highlight_start + day + highlight_end + TD_end;
+    </script>
+{% endblock %}

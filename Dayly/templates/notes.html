@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Notes
+{% endblock %}
+
+{% block main %}
+<h1 class="main-title">My Notes</h1>
+    <div class="list">
+    {% for i in title %}
+    <p class="list_title">{{ i["title"] }}</p>
+    {% endfor %}
+        {% for i in text %}
+            <p class="task_items" name="task">{{ i["text"] }}</p>
+        {% endfor %}
+        <a id="myBtn" class="edit"><img src="/static/edit.png" width="20" height="20" alt=""> Options</a>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Choose a note to delete:</h1>
+                <form action="/deletenote" method="POST">
+                    <select class="form-group" name="title">
+                        <option selected disabled value="" class="form-control">Select</option>
+                        {% for i in title %}
+                        <option name="task" class="form-control">{{ i["title"] }}</option>
+                        {% endfor %}
+                    </select>
+                    <input value="Delete" type="submit"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

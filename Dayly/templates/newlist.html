@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks/To-do's
+{% endblock %}
+
+{% block main %}
+    <style>
+        .error {
+        font-size: 40px;
+        text-align: center;
+        padding-top: 20%;
+        margin: auto;
+        }
+        .here {
+        border: none;
+        padding: 10px 10px;
+        transition: 0.5s;
+        border-radius: 20px;
+        text-decoration: underline;
+        }
+        .here:hover {
+        border-radius: 20px;
+        text-decoration: none;
+        background-color: #DFDFDF;
+        color: inherit;
+        cursor: pointer;
+        }
+    </style>
+    <p class="error">Uh-oh! It looks like you don't have any lists yet. Click<a class="here" id="myBtn">here</a>! :)</p>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Create a new task:</p>
+            <form action="/addlist" method="POST">
+                <label>Name of your list:</label><input id="input" name="title" type="text" autocomplete="off" placeholder="List Name">
+                <label>What is your first task?</label><input id="input" name="task" type="text" autocomplete="off" placeholder="Task Name">
+                <input id="submit" type="submit" value="Create" disabled>
+            </form>
+            <script>
+                document.querySelector('#input').onkeyup = function() {
+                    if (document.querySelector('#input').value === '') {
+                        document.querySelector('#submit').disabled = true;
+                    } else {
+                        document.querySelector('#submit').disabled = false;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+{% endblock %}

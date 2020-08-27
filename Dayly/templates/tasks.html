@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tasks/To-do's
+{% endblock %}
+
+{% block main %}
+<h1 class="main-title">My Tasks/To-do's</h1>
+    <div class="list">
+    {% for i in title %}
+    <p class="list_title">{{ i["title"] }}</p>
+    {% endfor %}
+        <ul>
+            {% for i in text %}
+                <li class="task_items" name="task">{{ i["text"] }}</li>
+            {% endfor %}
+            <form class="newnew" action="/additem" method="POST">
+                <input id="submit" type="image" src="/static/plus.png" width="20" height="20" disabled>
+                <input class="task-add" id="input" name="task" type="text" autocomplete="off" placeholder="Add task">
+                <br>
+                <a id="myBtn" class="edit"><img src="/static/edit.png" width="20" height="20" alt=""> Options</a>
+            </form>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>Choose one of the following:</h1>
+                    <h2>Choose a list to delete:</h2>
+                    <form action="/deletelist" method="POST">
+                        <select class="form-group" name="title">
+                            <option selected disabled value="" class="form-control">Select</option>
+                            {% for i in title %}
+                            <option name="task" class="form-control">{{ i["title"] }}</option>
+                            {% endfor %}
+                        </select>
+                        <input value="Delete" type="submit"></input>
+                    </form>
+                    <h2>Choose a task to edit:</h2>
+                    <form action="/edit" method="POST">
+                        <p>replace:</p>
+                        <select class="form-group" name="task">
+                            <option selected disabled value="" class="form-control">Select</option>
+                            {% for i in text %}
+                            <option name="task" class="form-control">{{ i["text"] }}</option>
+                            {% endfor %}
+                        </select>
+                        <p>with:</p>
+                        <input id="input" name="new" type="text" placeholder="Task Name">
+                        <input id="submit" type="submit" value="Edit">
+                    </form>
+                    <h2>Choose a task to remove:</h2>
+                    <form action="/remove" method="POST">
+                        <select class="form-group" name="task">
+                            <option selected disabled value="" class="form-control">Select</option>
+                            {% for i in text %}
+                            <option name="task" class="form-control">{{ i["text"] }}</option>
+                            {% endfor %}
+                        </select>
+                        <input value="Remove" type="submit"></input>
+                    </form>
+                </div>
+            </div>
+        </ul>
+    </div>
+{% endblock %}
