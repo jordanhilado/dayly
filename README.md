@@ -6,6 +6,7 @@ Getting started on local:
 1. Set environment variable "export FLASK_APP=application"
 2. Run "pip install -r requirements.txt"
 3. Run the app "flask run"
+
 ## Created by
 Jordan Hilado - CA
 
