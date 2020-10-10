@@ -21,11 +21,6 @@ and to access go to [](http://localhost:5000) your browser
 ## Build Disclaimer
 The build is from a `fedora` image, if you want a production build please use a different build
 
-## Created by
-Jordan Hilado - CA
-
-Twitter/Facebook/Instagram/LinkedIn/GitHub: @JordanHilado
-
 ## Sources
 * Bootstrap: https://getbootstrap.com/
 * Favicon: https://favicon.io/
