@@ -7,6 +7,17 @@ Jordan Hilado - CA
 
 Twitter/Facebook/Instagram/LinkedIn/GitHub: @JordanHilado
 
+
+## Execution
+
+1. Clone the repo
+2. Change directory to repo/Dayly
+3. Create Virtual Environment => `python -m venv myenv` [Assuming you have python3 as 'python']
+4. Enable Virtual Environment => `. myenv/bin/activate`
+5. Install requirements => `pip install -r requirements.txt`
+6. Run the Server => `python application.py`
+7. Visit `http://127.0.0.1:5000` in web browser
+
 ## Sources
 * Bootstrap: https://getbootstrap.com/
 * Favicon: https://favicon.io/
