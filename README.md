@@ -14,3 +14,31 @@ Twitter/Facebook/Instagram/LinkedIn/GitHub: @JordanHilado
 * Trading View: https://www.tradingview.com/
 * RSS Feed Widget: http://www.rssfeedwidget.com/
 * Weather Widget IO: https://weatherwidget.io/
+
+## Install
+
+For Unix/Windows: 
+
+```
+pip install flask
+```
+```
+pip install cs50
+```
+```
+pip install requests
+```
+
+Move to the root folder containing application.py ( Dayly\Dayly )
+
+For Unix/MacOS:
+```
+$ export FLASK_APP=application.py
+$ flask run
+```
+For Windows:
+```
+C:\path\to\app>set FLASK_APP=application.py
+C:\path\to\app>python -m flask run
+```
+
