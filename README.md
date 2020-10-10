@@ -7,6 +7,10 @@ Jordan Hilado - CA
 
 Twitter/Facebook/Instagram/LinkedIn/GitHub: @JordanHilado
 
+Getting started on local:
+1. Set environment variable "export FLASK_APP=application"
+2. Run "pip install -r requirements.txt"
+
 ## Sources
 * Bootstrap: https://getbootstrap.com/
 * Favicon: https://favicon.io/
