@@ -8,6 +8,8 @@ RUN yum update -y \
     git -y \
     && \
    yum clean all \
+   && \
+   yum install --assumeyes python3-pip \
    && :
 
 ENV PATH /usr/local/bin:$PATH
